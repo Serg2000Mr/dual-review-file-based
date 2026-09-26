@@ -2,17 +2,11 @@
 
 # Dual Review File Based
 
-Two AI agents review plans and code iteratively, catching issues that a single agent misses.
+Two AI agents review plans and code iteratively, coordinating through plain files with no server or orchestrator needed.
 
-## Why review with another model
+## Why
 
-A single AI agent tends to be consistent with itself: it makes the same assumptions throughout a task and rarely questions its own decisions. A second, independent agent breaks this pattern:
-
-- **Blind spots** — each agent has different biases; cross-checking surfaces issues neither would find alone
-- **Confirmation resistance** — when one agent must defend a decision to another, weak reasoning gets exposed before it reaches production
-- **Higher signal** — two independent agents agreeing on an issue is much stronger than one agent's self-assessment
-
-The skill carries review through to a result: the initiator verifies findings and applies justified fixes, then the independent agent checks the updated files in the next round.
+AI-generated plans and code benefit from a second opinion before implementation. But setting up a review pipeline between agents usually requires MCP servers, orchestrators, or custom infrastructure. This skill replaces all of that with a simple file-based protocol: agents read and write markdown files in a shared directory, each round producing a structured review with verdicts and evidence-backed issues.
 
 Roles are not tied to applications: Codex → Codex, Codex → ZCode, Claude Code → Codex, and other pairings all work. For cross-model review, select different models inside those applications. A separate chat using the same model is also supported and still provides independent context. Both agents work in the same project directory; no MCP server or CLI bridge is required.
 
