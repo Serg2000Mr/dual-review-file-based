@@ -6,6 +6,21 @@ This project uses a lightweight Keep a Changelog style. Dates are in UTC.
 
 ## [Unreleased]
 
+## [2026-09-26]
+
+### Added
+- Added the current Codex-initiated manual review bundle in `codex/`, including the session driver, atomic protocol publisher, reviewer prompt, and Windows checks.
+- Added task-bound recovery, recorded decisions with file-change evidence, explicit cancellation/technical-stop outcomes, and guarded completion.
+- Documented both installation directions and their distinct platform requirements in English and Russian.
+
+### Changed
+- Renamed the project to Dual Review File Based; agent pairings are examples.
+- Clarified agent-independent roles, including Codex-to-Codex and Codex-to-ZCode; historical protocol identifiers remain unchanged.
+- Made the exported Codex bundle independent of project-specific paths, Serena requirements, and local hook configuration. Preserved the persistent Windows handoff notification with the actual project and task titles.
+- Resuming an already-written review in the Claude-initiated bundle now continues waiting for the next round instead of treating that round as session completion.
+
+## Earlier unreleased changes
+
 ### Added
 - Added a machine-readable JSON contract to round-start and review files.
 - Added `wait-for-review.ps1` for native Windows sessions.
