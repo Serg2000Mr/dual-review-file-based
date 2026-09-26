@@ -2,13 +2,19 @@
 
 # Dual Review File Based
 
-An agent reviewing its own plan or code may carry forward the assumptions that caused a mistake. Cross-review by another model provides an independent perspective: the reviewer examines the requirements and actual files afresh, looking for defects, omissions, and unnecessary complexity. Different models may notice different problems, helping uncover what the author missed.
+Two AI agents review plans and code iteratively, catching issues that a single agent misses.
 
-The skill organizes the complete correction loop: one agent does the work, another reviews it, the author verifies findings and applies justified fixes, and the reviewer checks the updated files. Findings lead to checked changes rather than ending as a list of suggestions.
+## Why review with another model
 
-For cross-model review, choose different underlying models, not just different applications: the names Codex, ZCode, and Claude Code do not by themselves identify the model in use. A separate chat with the same model is also supported; it provides separate context, but not model diversity.
+A single AI agent tends to be consistent with itself: it makes the same assumptions throughout a task and rarely questions its own decisions. A second, independent agent breaks this pattern:
 
-These skills let an initiator and an independent reviewer check a plan or code change through a file protocol. Agent brands do not define the roles: Codex → Codex, Codex → ZCode, Claude Code → Codex, and other pairings use the same role separation. Both need access to the same project directory. Manual prompt delivery is the default; no MCP server or CLI bridge is required.
+- **Blind spots** — each agent has different biases; cross-checking surfaces issues neither would find alone
+- **Confirmation resistance** — when one agent must defend a decision to another, weak reasoning gets exposed before it reaches production
+- **Higher signal** — two independent agents agreeing on an issue is much stronger than one agent's self-assessment
+
+The skill carries review through to a result: the initiator verifies findings and applies justified fixes, then the independent agent checks the updated files in the next round.
+
+Roles are not tied to applications: Codex → Codex, Codex → ZCode, Claude Code → Codex, and other pairings all work. For cross-model review, select different models inside those applications. A separate chat using the same model is also supported and still provides independent context. Both agents work in the same project directory; no MCP server or CLI bridge is required.
 
 | Installation example | Skill directory | Environment |
 |---|---|---|
