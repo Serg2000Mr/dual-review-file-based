@@ -19,9 +19,9 @@
 
 ## Быстрый старт
 
-### Сессии под управлением скрипта: пример установки для Codex
+### Установка навыка с управлением сессией в Codex
 
-Скопируйте весь каталог `codex/`, включая `tests/`, в каталог навыков Codex:
+Скопируйте содержимое каталога `codex/`, включая `tests/`, в `.agents/skills/claude-dual-review-file-based/` вашего проекта:
 
 ```powershell
 New-Item -ItemType Directory -Force .agents/skills/claude-dual-review-file-based

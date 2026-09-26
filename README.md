@@ -19,9 +19,9 @@ Directory names, skill names, review headings, and `claude`/`codex` filename com
 
 ## Quick start
 
-### Script-managed sessions (installation example for Codex)
+### Installing the script-managed skill in Codex
 
-Copy the complete `codex/` directory, including `tests/`, into your project's Codex skill directory:
+Copy the contents of `codex/`, including `tests/`, to `.agents/skills/claude-dual-review-file-based/` in your project:
 
 ```powershell
 New-Item -ItemType Directory -Force .agents/skills/claude-dual-review-file-based
